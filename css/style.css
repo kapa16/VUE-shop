@@ -1,0 +1,31 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 20px 0;
+  background: gray;
+  color: white;
+}
+
+.product__catalog {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 40px;
+  grid-template-rows: auto;
+  margin: 40px auto;
+}
+.product__card {
+  padding: 20px;
+  border: 1px solid gray;
+}
+.product__btn {
+  padding: 10px;
+  color: white;
+  background: darkgray;
+  border: none;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
