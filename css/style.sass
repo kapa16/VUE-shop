@@ -6,7 +6,9 @@
   padding: 20px 0
   background: gray
   color: white
-
+  &__container
+    display: flex
+    justify-content: space-between
 
 .product
 
@@ -27,3 +29,17 @@
     background: darkgray
     border: none
     border-radius: 10px
+
+.cart
+  position: relative
+
+  &__count
+    width: 20px
+    position: absolute
+    top: -5px
+    right: -20px
+    background: indianred
+    border-radius: 50%
+    padding: 2px 0
+    text-align: center
+    line-height: 100%

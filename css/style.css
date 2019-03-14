@@ -8,6 +8,10 @@
   background: gray;
   color: white;
 }
+.header__container {
+  display: flex;
+  justify-content: space-between;
+}
 
 .product__catalog {
   display: grid;
@@ -26,6 +30,21 @@
   background: darkgray;
   border: none;
   border-radius: 10px;
+}
+
+.cart {
+  position: relative;
+}
+.cart__count {
+  width: 20px;
+  position: absolute;
+  top: -5px;
+  right: -20px;
+  background: indianred;
+  border-radius: 50%;
+  padding: 2px 0;
+  text-align: center;
+  line-height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
