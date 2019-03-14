@@ -9,16 +9,10 @@ Vue.component('product-list', {
     }
   },
   methods: {
-    getJson(url) {
-      return fetch(url)
-        .then(result => result.json());
-    },
-    addToCart(id) {
-      console.log(id);
-    }
+
   },
   mounted() {
-    this.getJson(`${API}/catalogData.json`)
+    this.$parent.getJson(`${API}/catalogData.json`)
       .then(data => {
         this.products = [...this.products, ...data];
         this.filtered = [...this.filtered, ...data];
@@ -27,9 +21,9 @@ Vue.component('product-list', {
         console.log(err);
       });
   },
-  template: `<div class="product__catalog container">
+  template: `<div class="product__catalog container" >
                 <div v-for="product of filtered" :key="product.id_product">
-                    <product-item :product="product" :img="img"></product-item>
+                    <product-item :product="product" :img="img" @add-to-cart="$parent.$refs.cart.addToCart"></product-item>
                 </div>
             </div>`
 });
@@ -43,6 +37,6 @@ Vue.component('product-item', {
                 <img :src="img" alt="photo">
                 <h3>{{product.product_name}}</h3>
                 <p>Цена: {{product.price}}</p>
-                <button @click="$parent.addToCart(product.id_product)" class="product__btn">buy</button>
+                <button @click="$emit('add-to-cart',product)" class="product__btn">buy</button>
             </div>`
 });
