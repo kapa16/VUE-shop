@@ -4,7 +4,8 @@ Vue.component('product-list', {
   data() {
     return {
       products: [],
-      filtered: []
+      filtered: [],
+      img: 'https://placehold.it/300x200'
     }
   },
   methods: {
@@ -26,20 +27,22 @@ Vue.component('product-list', {
         console.log(err);
       });
   },
-  template: `<div>
+  template: `<div class="product__catalog container">
                 <div v-for="product of filtered" :key="product.id_product">
-                    <product-item :product="product"></product-item>
+                    <product-item :product="product" :img="img"></product-item>
                 </div>
             </div>`
 });
 
 Vue.component('product-item', {
   props: [
-    'product'
+    'product',
+    'img'
   ],
-  template: `<div>
+  template: `<div class="product__card">
+                <img :src="img" alt="photo">
                 <h3>{{product.product_name}}</h3>
-                <p>{{product.price}}</p>
-                <button @click="$parent.addToCart(product.id_product)">buy</button>
+                <p>Цена: {{product.price}}</p>
+                <button @click="$parent.addToCart(product.id_product)" class="product__btn">buy</button>
             </div>`
 });
