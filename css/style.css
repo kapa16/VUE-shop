@@ -46,5 +46,12 @@
   text-align: center;
   line-height: 100%;
 }
+.cart__products {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: white;
+  border: 1px solid gray;
+}
 
 /*# sourceMappingURL=style.css.map */
