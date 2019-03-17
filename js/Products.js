@@ -20,6 +20,14 @@ Vue.component('product-list', {
       .catch(err => {
         console.log(err);
       });
+      this.$parent.getJson(`./products.json`)
+      .then(data => {
+        this.products = [...this.products, ...data];
+        this.filtered = [...this.filtered, ...data];
+      })
+      .catch(err => {
+        console.log(err);
+      });
   },
   template: `<div class="product__catalog container" >
                 <div v-for="product of filtered" :key="product.id_product">
