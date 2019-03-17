@@ -9,7 +9,10 @@ Vue.component('product-list', {
     }
   },
   methods: {
-
+    filter(userInput) {
+      const regExp = new RegExp(`${userInput}`, 'i');
+      this.filtered = this.products.filter((product) => regExp.test(product.product_name));
+    }
   },
   mounted() {
     this.$parent.getJson(`${API}/catalogData.json`)
